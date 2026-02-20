@@ -23,7 +23,7 @@ const emailjsConfig = {
     publicKey: "ZfyjcNhadIY3VxohM",
     serviceId: "service_upmw86n",
     templateId: "template_cceovxn",
-    toEmail: "arpittiwarijpr@gmail.com",
+    toEmail: "pinkichaudhary9827@gmail.com",
 };
 
 const story = [
