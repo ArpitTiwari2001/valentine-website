@@ -1,0 +1,238 @@
+:root {
+    color-scheme: only light;
+    --ink: #f4f3ff;
+    --accent: #9f6fff;
+    --accent-strong: #5b3aff;
+    --glow: rgba(255, 111, 179, 0.45);
+    --deep: #090914;
+    --deep-2: #14152b;
+    --card: rgba(10, 12, 32, 0.65);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    cursor: url('./images/pointer.png'), auto;
+    background: radial-gradient(circle at top, #1c1d3b 0%, #0b0b1a 55%, #05050c 100%);
+    color: var(--ink);
+}
+
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.hero {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 14px;
+    padding: 28px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    border-radius: 32px; /* keeps rounded corners */
+    width: 95%;
+    height: 172%;
+    top: 2.5%;
+    left: 2.5%;
+    background: linear-gradient(135deg, rgba(255, 111, 179, 0.15), rgba(59, 97, 255, 0.12));
+    box-shadow: 0 30px 80px rgba(5, 8, 22, 0.6), 0 0 60px rgba(255, 111, 179, 0.15);
+    filter: blur(0.1px);
+    z-index: -1;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.72rem;
+    color: rgba(244, 243, 255, 0.7);
+    margin: 0;
+}
+
+.title {
+    font-family: "Fraunces", serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    margin: 0;
+    text-shadow: 0 0 40px var(--glow);
+}
+
+.message {
+    min-height: 3.5em;
+    font-size: clamp(1.1rem, 2.6vw, 1.65rem);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 34ch;
+    color: rgba(244, 243, 255, 0.92);
+    text-shadow: 0 0 24px rgba(75, 110, 255, 0.4);
+    transition: opacity 0.8s ease;
+}
+
+.message.is-fading {
+    opacity: 0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+}
+
+#valentinesButton {
+    background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 18px 40px rgba(255, 58, 151, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#valentinesButton:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 22px 48px rgba(255, 58, 151, 0.45);
+}
+
+#valentinesButton:active {
+    transform: translateY(1px) scale(0.99);
+}
+
+.final {
+    font-family: "Fraunces", serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+    text-shadow: 0 0 24px var(--glow);
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 680px) {
+    .hero::before {
+        width: 100%;
+        height: 70%;
+    }
+}
+.heart {
+    position: fixed;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: floatUp 4s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.8);
+        opacity: 0;
+    }
+}
+/* Pink glow overlay */
+#pinkGlow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 105, 180, 0.25), rgba(255, 20, 147, 0.35));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 3s ease-in-out;
+    z-index: 2;
+}
+
+/* When glow activates */
+#pinkGlow.active {
+    opacity: 1;
+}
+/* Zoom container */
+.zoom-effect {
+    animation: slowZoom 6s ease-in-out forwards;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+.sparkle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 8px white;
+    animation: sparkleFloat 6s linear forwards;
+    pointer-events: none;
+    z-index: 3;
+}
+
+@keyframes sparkleFloat {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-300px);
+        opacity: 0;
+    }
+}
+
+#finalText {
+    position: fixed;
+    top: 70%;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    color: white;
+    opacity: 0;
+    transition: opacity 4s ease-in-out, transform 4s ease-in-out;
+    /* z-index: 4; */
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px rgba(255,255,255,0.8);
+    transform: translateY(10px);
+    z-index: 10;
+}
+
+#finalText.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+  body {
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+  
+  body.loaded {
+    opacity: 1;
+  }

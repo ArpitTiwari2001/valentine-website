@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:title" content="From India to Japan, I choose you ❤️">
+  <meta property="og:description" content="A sky full of stars, forming into a heart.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sojijr.github.io/valentine-website/">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta name="theme-color" content="#ff4d88">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:image" content="https://sojijr.github.io/valentine-website/public/images/favicon.png">
+  <link rel="icon" href="public/images/favicon.png" type="image/x-icon" />
+  <title>Happy Valentine's Day</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="public/style.css">
+</head>
+
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="a_thousand_year.mp3" type="audio/mpeg">
+  </audio>
+
+  <div id="pinkGlow"></div>
+
+  <canvas id="starfield"></canvas>
+
+  <div id="mainContent">
+    <main class="hero" aria-live="polite">
+      <p class="eyebrow">A sky full of stars for my MUTU</p>
+      <h1 class="title">My MUTU 😘</h1>
+      <p id="message" class="message"></p>
+
+      <div class="actions">
+        <button id="valentinesButton" type="button">Hit me</button>
+      </div>
+
+      <p id="finalNote" class="final hidden">
+        Happy Valentine's Day, Miss Chauhan.
+      </p>
+    </main>
+  </div>
+
+  <div id="finalText">
+    From India to Japan, I choose you.
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
